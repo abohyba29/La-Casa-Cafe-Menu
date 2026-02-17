@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+
+<html lang="ar" dir="rtl">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>منيو مطعم أبو هيبة</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+
+        body {
+
+            margin: 0; padding: 0;
+
+            background-color: #121212;
+
+            display: flex; flex-direction: column; align-items: center;
+
+            font-family: sans-serif;
+
+        }
+
+        .menu-container { width: 100%; max-width: 600px; padding-bottom: 80px; }
+
+        .page-wrapper {
+
+            margin-bottom: 25px;
+
+            background-color: #1e1e1e;
+
+            border-radius: 0 0 15px 15px;
+
+            overflow: hidden;
+
+            box-shadow: 0px 4px 20px rgba(0,0,0,0.6);
+
+        }
+
+        .menu-image { width: 100%; display: block; }
+
+        .instagram-link {
+
+            display: flex; align-items: center; justify-content: center;
+
+            padding: 12px; text-decoration: none; color: #fff;
+
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+
+            font-weight: bold; font-size: 18px;
+
+        }
+
+        .instagram-link i { margin-left: 10px; }
+
+        /* زرار الصوت */
+
+        #music-control {
+
+            position: fixed; bottom: 20px; left: 20px;
+
+            width: 50px; height: 50px;
+
+            background-color: rgba(230, 126, 34, 0.9);
+
+            color: white; border-radius: 50%;
+
+            display: flex; align-items: center; justify-content: center;
+
+            cursor: pointer; z-index: 1000; border: 2px solid white;
+
+        }
+
+    </style>
+
+</head>
+
+<body onclick="startMusic()" onscroll="startMusic()">
+
+    <audio id="bg-music" loop>
+
+        <source src="https://files.catbox.moe/i0yg2q.m4a" type="audio/mp4">
+
+    </audio>
+
+    <div id="music-control" onclick="toggleMusic(event)">
+
+        <i id="music-icon" class="fas fa-volume-mute"></i>
+
+    </div>
+
+    <div class="menu-container">
+
+        <div class="page-wrapper"><img src="https://files.catbox.moe/5g9paq.jpg" class="menu-image"><a href="https://www.instagram.com/abohyba29?igsh=bjY3cXg1dXJobzVv" target="_blank" class="instagram-link"><i class="fab fa-instagram"></i> abo hyba</a></div>
+
+        <div class="page-wrapper"><img src="https://files.catbox.moe/k3ji8c.jpg" class="menu-image"><a href="https://www.instagram.com/abohyba29?igsh=bjY3cXg1dXJobzVv" target="_blank" class="instagram-link"><i class="fab fa-instagram"></i> abo hyba</a></div>
+
+        <div class="page-wrapper"><img src="https://files.catbox.moe/i42u6b.jpg" class="menu-image"><a href="https://www.instagram.com/abohyba29?igsh=bjY3cXg1dXJobzVv" target="_blank" class="instagram-link"><i class="fab fa-instagram"></i> abo hyba</a></div>
+
+        <div class="page-wrapper"><img src="https://files.catbox.moe/x8g4jq.jpg" class="menu-image"><a href="https://www.instagram.com/abohyba29?igsh=bjY3cXg1dXJobzVv" target="_blank" class="instagram-link"><i class="fab fa-instagram"></i> abo hyba</a></div>
+
+        <div class="page-wrapper"><img src="https://files.catbox.moe/353n2t.jpg" class="menu-image"><a href="https://www.instagram.com/abohyba29?igsh=bjY3cXg1dXJobzVv" target="_blank" class="instagram-link"><i class="fab fa-instagram"></i> abo hyba</a></div>
+
+    </div>
+
+    <script>
+
+        var music = document.getElementById("bg-music");
+
+        var icon = document.getElementById("music-icon");
+
+        var hasStarted = false;
+
+        // دالة تشغيل الصوت بمجرد التفاعل مع الصفحة
+
+        function startMusic() {
+
+            if (!hasStarted) {
+
+                music.play();
+
+                icon.classList.replace("fa-volume-mute", "fa-volume-up");
+
+                hasStarted = true;
+
+            }
+
+        }
+
+        // دالة التحكم اليدوي (قفل وفتح)
+
+        function toggleMusic(event) {
+
+            event.stopPropagation(); // عشان ميتعارضش مع دالة startMusic
+
+            if (music.paused) {
+
+                music.play();
+
+                icon.classList.replace("fa-volume-mute", "fa-volume-up");
+
+            } else {
+
+                music.pause();
+
+                icon.classList.replace("fa-volume-up", "fa-volume-mute");
+
+            }
+
+        }
+
+    </script>
+
+</body>
+
+</html>
